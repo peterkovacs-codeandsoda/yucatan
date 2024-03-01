@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AndromedaLabs/Scenes/IntroScene.unity
     guid: 2f04028794fe75f42b95655d8416c87c
+  - enabled: 1
+    path: Assets/AndromedaLabs/Scenes/FirstStageScene.unity
+    guid: 9f45866b8dee9ac49a37c40e58edc620
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
