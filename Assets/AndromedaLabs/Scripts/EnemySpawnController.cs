@@ -23,6 +23,12 @@ public class EnemySpawnController : Singleton<EnemySpawnController>
         //GameEvents.Instance.triggerEnemySpawning.AddListener(HandleEnemySpawning);
         HandleEnemySpawning();
     }
+
+    private void Update()
+    {
+        HandleEnemyEliminated();
+    }
+
     public void HandleEnemySpawning()
     {
         spawnInProgress = true;
@@ -53,7 +59,6 @@ public class EnemySpawnController : Singleton<EnemySpawnController>
                 spawnInProgress = false;
             }
         }
-       
     }
 
     private bool CheckStageDeployed()
@@ -63,12 +68,12 @@ public class EnemySpawnController : Singleton<EnemySpawnController>
 
     private void InitializeByWaveData(int waveId)
     {
-        StageWaveData.WaveData waveData = stageWaveSetup.waves[waveId - 1];
+        WaveData waveData = stageWaveSetup.waves[waveId - 1];
         maxNumberOfEnemiesInWave = waveData.entityCount;
         maxDelay = CalculateMaxDelay(waveData);
     }
 
-    private float CalculateMaxDelay(StageWaveData.WaveData waveData)
+    private float CalculateMaxDelay(WaveData waveData)
     {
         float result;
         if (waveData.internalDelay > 0f)

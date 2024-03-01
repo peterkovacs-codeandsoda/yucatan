@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: stage1
   m_EditorClassIdentifier: 
   waves:
-  - {fileID: 11400000, guid: 18a387f9a2f733849ab847f246f08272, type: 2}
-  - {fileID: 11400000, guid: ddc79a9ef58532b43ad808ca5bf89cd1, type: 2}
-  - {fileID: 11400000, guid: b40097b0dc30da64fa58cf936284450e, type: 2}
-  - {fileID: 11400000, guid: 3ab7494702480474c8e718003f9d796c, type: 2}
-  - {fileID: 11400000, guid: cad68f325f985f3439256ef5dd5de0e1, type: 2}
+  - {fileID: 11400000, guid: a9916cf435d3b8b449e819b874002f29, type: 2}
+  - {fileID: 11400000, guid: 42ea3528494dbf04584d68619294488d, type: 2}
+  - {fileID: 11400000, guid: 3d3b3ee178f977546ad359cddefafd0b, type: 2}
+  - {fileID: 11400000, guid: ce1ca27074ee86645a6e9569d45ca220, type: 2}
+  - {fileID: 11400000, guid: 90d6f3b0d96abc84796ef44428f9811e, type: 2}

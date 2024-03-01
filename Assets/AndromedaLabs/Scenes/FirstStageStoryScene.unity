@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 906593605}
     - target: {fileID: 1771869122028998009, guid: bf1cc43d94f96ed4284ae9a4aca22a6f, type: 3}
       propertyPath: nextButtonTargetSceneName
-      value: FirstStageScene
+      value: SecondStageScene
       objectReference: {fileID: 0}
     - target: {fileID: 2902108936208757548, guid: bf1cc43d94f96ed4284ae9a4aca22a6f, type: 3}
       propertyPath: m_Name
@@ -754,12 +754,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typingDelay: 0.1
   targetUIText: {fileID: 1622787951}
-  targetText: 'Listen to me! Hard time is coming to the land. who has no name, you
-    know. It''s angry, like never before. we have to stand together. No one can survive.
-    alone...
-
-
-'
+  targetText: Pure evil. It killed so many people. It did so many bad things to us.
+    We can't accept this. We can't be doomed.
 --- !u!1 &1622787949
 GameObject:
   m_ObjectHideFlags: 0

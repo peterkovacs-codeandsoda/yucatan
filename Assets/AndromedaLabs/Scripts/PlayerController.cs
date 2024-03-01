@@ -1,9 +1,20 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
 {
     [SerializeField]
     private float movementSpeed = 3f;
+
+    private void Start()
+    {
+        GameEvents.Instance.triggerStageCleared.AddListener(HandleStageCleared);
+    }
+
+    private void HandleStageCleared()
+    {
+        this.enabled = false;
+    }
 
     // Update is called once per frame
     void Update()
