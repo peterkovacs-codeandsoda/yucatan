@@ -13,4 +13,17 @@ public class EnemyController : MonoBehaviour
         Vector2 movementDirection = target - transform.position;
         transform.Translate(movementSpeed * Time.deltaTime * movementDirection.normalized);
     }
+
+    private void OnDestroy()
+    {
+        GameEvents.Instance.triggerEnemyEliminated.Invoke();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
