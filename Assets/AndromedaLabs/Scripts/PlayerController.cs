@@ -28,5 +28,11 @@ public class PlayerController : Singleton<PlayerController>
         }
 
         transform.Translate(movementSpeed * Time.deltaTime * movementDirection.normalized);
+
+        Vector2 currentPositionInBoundary = GameAreaBoundController.Instance.KeepInBound(transform.position);
+        if (!currentPositionInBoundary.Equals(transform.position))
+        {
+            transform.position = currentPositionInBoundary;
+        }
     }
 }

@@ -15,6 +15,7 @@ public class TypeWritingController : MonoBehaviour
 
     private int visibleCharacterCount = 0;
     private Coroutine typingCoroutine;
+    private bool nextStageDisplayed = false;
     void Start()
     {
         typingCoroutine = StartCoroutine(Typing());
@@ -22,11 +23,12 @@ public class TypeWritingController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!nextStageDisplayed && Input.GetMouseButtonDown(0))
         {
             StopCoroutine(typingCoroutine);
             targetUIText.text = targetText;
             GameEvents.Instance.introTextIsOver.Invoke();
+            nextStageDisplayed = true;
         }
     }
 
