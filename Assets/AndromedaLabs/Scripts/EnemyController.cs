@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour
     {
         Vector3 target = PlayerController.Instance.transform.position;
         Vector2 movementDirection = target - transform.position;
+        bool directionSign = movementDirection.x < 0;
+        GetComponent<SpriteRenderer>().flipX = directionSign;
         transform.Translate(movementSpeed * Time.deltaTime * movementDirection.normalized);
     }
 

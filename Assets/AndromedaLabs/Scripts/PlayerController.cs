@@ -39,6 +39,17 @@ public class PlayerController : Singleton<PlayerController>
         }
 
         transform.Translate(movementSpeed * Time.deltaTime * movementDirection.normalized);
+        if (!movementDirection.Equals(Vector2.zero))
+        {
+            GetComponent<Animator>().SetBool("walk", true);
+            bool directionSign = movementDirection.x < 0;
+            GetComponent<SpriteRenderer>().flipX = directionSign;
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("walk", false);
+
+        }
 
         Vector2 currentPositionInBoundary = GameAreaBoundController.Instance.KeepInBound(transform.position);
         if (!currentPositionInBoundary.Equals(transform.position))

@@ -40,7 +40,7 @@ public class EnemySpawnController : Singleton<EnemySpawnController>
     {
         if (enemyParent.childCount == 0 && CheckStageDeployed())
         {
-            //print("all enemies eliminated");
+            print("all enemies eliminated");
             GameEvents.Instance.triggerStageCleared.Invoke();
         }
     }
@@ -51,11 +51,12 @@ public class EnemySpawnController : Singleton<EnemySpawnController>
         {
             InitializeByWaveData(waveCount);
             float delay = SpawnBasicMode();
+            print("Wave " + waveCount + " deployed!");
             waveCount++;
             yield return new WaitForSeconds(delay);
             if (CheckStageDeployed())
             {
-                //print("stage deployed");
+                print("stage deployed");
                 spawnInProgress = false;
             }
         }
@@ -63,7 +64,7 @@ public class EnemySpawnController : Singleton<EnemySpawnController>
 
     private bool CheckStageDeployed()
     {
-        return waveCount == stageWaveSetup.waves.Count;
+        return waveCount > stageWaveSetup.waves.Count;
     }
 
     private void InitializeByWaveData(int waveId)
