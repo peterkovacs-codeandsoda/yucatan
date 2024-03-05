@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1737e614bc7eb9841bd448b951ad2941
+guid: 93a0087974660524584a3591d11dd877
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: player-1
+  - name: camp-1
     originalName: 
-    pivot: {x: 0.5625, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 16
-      height: 31
-    spriteID: adc6814a90dbe6349b8d18e000272ed9
+      width: 32
+      height: 32
+    spriteID: 729c2337aaff7f24e8f7a5927f1a9764
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,20 +142,20 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1968255999
-    name: player-1
+    guid: 171694291
+    name: camp-1
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: player-1
+    - name: camp-1
       frameIndex: 0
       cellRect:
-        x: 7
+        x: 0
         y: 0
-        width: 16
-        height: 31
-      spriteId: adc6814a90dbe6349b8d18e000272ed9
+        width: 32
+        height: 32
+      spriteId: 729c2337aaff7f24e8f7a5927f1a9764
     linkedCells: []
     parentIndex: -1
   platformSettings: []
