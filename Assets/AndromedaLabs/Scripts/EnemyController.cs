@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnDestroy()
     {
+        GameEvents.Instance.spawnCollectible.Invoke(transform.position);
         GameEvents.Instance.triggerEnemyEliminated.Invoke();
     }
 

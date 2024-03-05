@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2fd2eeef229e09a4faac2e71aa03dd4a
+guid: dad009e58b8197d418bece6587f16064
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3356559521950984788
-    second: background-primitive_0
+      213: 6120659675685675159
+    second: collectible-1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: background-primitive_0
+      name: collectible-1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 45ae755f915e49e20800000000000000
-      internalID: 3356559521950984788
+      spriteID: 7906d40eb83f0f450800000000000000
+      internalID: 6120659675685675159
       vertices: []
       indices: 
       edges: []
@@ -144,7 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      background-primitive_0: 3356559521950984788
+      collectible-1_0: 6120659675685675159
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

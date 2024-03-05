@@ -6,11 +6,11 @@ public class LightFlickering : MonoBehaviour
 {
     [SerializeField]
     private float maxFlicker;
-    private Light2D light;
+    private Light2D lightSource;
 
     void Start()
     {
-        light = GetComponent<Light2D>();
+        lightSource = GetComponent<Light2D>();
         StartCoroutine(DoFlickering());
     }
 
@@ -19,7 +19,7 @@ public class LightFlickering : MonoBehaviour
         while (true)
         {
             float flicker = Random.Range(0.3f, maxFlicker);
-            light.intensity = flicker;
+            lightSource.intensity = flicker;
             float delay = Random.Range(0.2f, 0.5f);
             yield return new WaitForSeconds(delay);
         }

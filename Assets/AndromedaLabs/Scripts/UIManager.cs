@@ -13,7 +13,15 @@ public class UIManager : Singleton<UIManager>
     private void Start()
     {
         GameEvents.Instance.introTextIsOver.AddListener(DisplayNextStageButtonAfterTextDisplayed);
+        GameEvents.Instance.hideNextButton.AddListener(HideNextButton);
         GameEvents.Instance.triggerStageCleared.AddListener(HandleStageCleared);
+        GameEvents.Instance.loadNextScene.AddListener(LoadNextScene);
+    }
+
+
+    private void HideNextButton()
+    {
+        nextStagePanel.SetActive(false);
     }
 
     private void HandleStageCleared()
@@ -48,6 +56,11 @@ public class UIManager : Singleton<UIManager>
     private void DisplayNextStageButtonAfterTextDisplayed()
     {
         nextStagePanel.SetActive(true);
+    }
+
+    public void LoadNextSpeechEntry()
+    {
+        GameEvents.Instance.triggerNextSpeechEntry.Invoke();
     }
     #endregion
 }

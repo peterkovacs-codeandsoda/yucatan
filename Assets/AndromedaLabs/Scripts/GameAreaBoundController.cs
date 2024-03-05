@@ -22,7 +22,7 @@ public class GameAreaBoundController : Singleton<GameAreaBoundController>
 
     public Vector2 RandomPositionInBound()
     {
-        return new(Random.Range(-15, 15), Random.Range(-15, 15));
+        return new(Random.Range(bounds.min.x, bounds.max.x), Random.Range(bounds.min.y, bounds.max.y));
     }
 
 

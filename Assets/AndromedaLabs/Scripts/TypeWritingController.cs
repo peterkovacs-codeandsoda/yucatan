@@ -1,4 +1,7 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 
@@ -9,16 +12,37 @@ public class TypeWritingController : MonoBehaviour
     private float originalTypingDelay;
     [SerializeField]
     private TextMeshProUGUI targetUIText;
-    [TextArea(3,20)]
-    [SerializeField]
+
     private string targetText;
+
+    [SerializeField]
+    [TextArea(3,20)]
+    private List<string> speechEntries;
+    private int speechEntryIndex;
 
     private int visibleCharacterCount = 0;
     private Coroutine typingCoroutine;
     private bool nextStageDisplayed = false;
     void Start()
     {
-        typingCoroutine = StartCoroutine(Typing());
+        //typingCoroutine = StartCoroutine(Typing());
+        HandleNextSpeechEntry();
+        GameEvents.Instance.triggerNextSpeechEntry.AddListener(HandleNextSpeechEntry);
+    }
+
+    private void HandleNextSpeechEntry()
+    {
+        if (speechEntryIndex < speechEntries.Count)
+        {
+            targetText = speechEntries[speechEntryIndex++];
+            visibleCharacterCount = 0;
+            typingCoroutine = StartCoroutine(Typing());
+            nextStageDisplayed = false;
+        }
+        else
+        {
+            GameEvents.Instance.loadNextScene.Invoke();
+        }
     }
 
     private void Update()

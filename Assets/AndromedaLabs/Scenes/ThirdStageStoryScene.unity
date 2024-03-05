@@ -573,7 +573,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &501347462
+--- !u!1 &390055549
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -581,8 +581,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 501347463}
-  - component: {fileID: 501347465}
+  - component: {fileID: 390055550}
+  - component: {fileID: 390055551}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -590,13 +590,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &501347463
+--- !u!224 &390055550
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501347462}
+  m_GameObject: {fileID: 390055549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -612,13 +612,13 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 300}
   m_Pivot: {x: 0.5, y: 0}
---- !u!222 &501347465
+--- !u!222 &390055551
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501347462}
+  m_GameObject: {fileID: 390055549}
   m_CullTransparentMesh: 1
 --- !u!1 &609689272
 GameObject:
@@ -972,7 +972,7 @@ PrefabInstance:
       objectReference: {fileID: 906593605}
     - target: {fileID: 1771869122028998009, guid: bf1cc43d94f96ed4284ae9a4aca22a6f, type: 3}
       propertyPath: nextButtonTargetSceneName
-      value: SecondStageScene
+      value: FourthStageScene
       objectReference: {fileID: 0}
     - target: {fileID: 2902108936208757548, guid: bf1cc43d94f96ed4284ae9a4aca22a6f, type: 3}
       propertyPath: m_Name
@@ -1088,7 +1088,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 501347463}
+  - {fileID: 390055550}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1128,7 +1128,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1135728717}
-  m_Father: {fileID: 501347463}
+  m_Father: {fileID: 390055550}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1407,7 +1407,7 @@ Transform:
   m_GameObject: {fileID: 1007438409}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: -0.12, z: 0}
+  m_LocalPosition: {x: 0.53, y: -0.12, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1733,7 +1733,7 @@ MonoBehaviour:
   m_text: Next
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc4bc7d446e36d841b512d6ddc25b8a0, type: 2}
-  m_sharedMaterial: {fileID: -4872706067737340359, guid: bc4bc7d446e36d841b512d6ddc25b8a0, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1937,7 +1937,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 501347463}
+  m_Father: {fileID: 390055550}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -2107,7 +2107,7 @@ Transform:
   m_GameObject: {fileID: 1318129104}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.102, y: -0.515, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2225,11 +2225,11 @@ MonoBehaviour:
   typingDelay: 0.1
   targetUIText: {fileID: 1622787951}
   speechEntries:
-  - "Elder: Pure evil. It killed so many people. It did so many bad things to us.
-    We can't accept this. We can't be doomed. You have to fight against it! Eliminate
-    it at any cost!!\r"
-  - "You: That's disgusting. So much pain, so much fear. I have to fight for us.
-    Yucatan has to be saved.\r"
+  - "Strange Voice: Ha! ha! ha! that's for my taste. you did a pretty good job here.
+    Noone can live in peace. Come to me and hear my offer.\r"
+  - "You: I don't believe in you. You trick my senses. I feel sad for my people.
+    I have to take revenge and I don't fear anymore. I suggest to be prepared for
+    my arrival.\r"
 --- !u!1 &1510381320
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,7 +2390,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 501347463}
+  m_Father: {fileID: 390055550}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}

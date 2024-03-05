@@ -20,5 +20,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AndromedaLabs/Scenes/SecondStageScene.unity
     guid: 583db97e3ccbec8449b1d05ddc22ac4a
+  - enabled: 1
+    path: Assets/AndromedaLabs/Scenes/SecondStageStoryScene.unity
+    guid: 09fc66456bac5ed4b9347d9eb3a84bbd
+  - enabled: 1
+    path: Assets/AndromedaLabs/Scenes/ThirdStageScene.unity
+    guid: 41ff6d779282f124ea7bd15cdc2bb720
+  - enabled: 1
+    path: Assets/AndromedaLabs/Scenes/ThirdStageStoryScene.unity
+    guid: 25ba0724791fa2844a9096417ea53a0f
+  - enabled: 1
+    path: Assets/AndromedaLabs/Scenes/FourthStageScene.unity
+    guid: c7cf406c0a6df324c910fc0b5d2694ce
+  - enabled: 1
+    path: Assets/AndromedaLabs/Scenes/FourthStageStoryScene.unity
+    guid: cc18a71f25ede624da67ee171b3e7b1c
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
