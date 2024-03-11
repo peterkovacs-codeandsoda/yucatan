@@ -12,6 +12,8 @@ public class PlayerController : Singleton<PlayerController>
 
     private bool throwInProgress = false;
 
+    private int mightiness = 10;
+
     private void Start()
     {
         GameEvents.Instance.triggerStageCleared.AddListener(HandleStageCleared);
@@ -39,7 +41,15 @@ public class PlayerController : Singleton<PlayerController>
         print("called throwdone");
     }
 
-    // Update is called once per frame
+    public void DecreaseMightiness()
+    {
+        mightiness--;
+        if (mightiness <= 0)
+        {
+            GameEvents.Instance.triggerRestartGame.Invoke();
+        }
+    }
+
     void Update()
     {
         if (!throwInProgress && Input.GetMouseButtonDown(0))

@@ -26,7 +26,13 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            collision.gameObject.GetComponent<PlayerController>().DecreaseMightiness();
         }
+    }
+
+    private IEnumerator Sleep()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        yield return new WaitForSeconds(2f);
     }
 }

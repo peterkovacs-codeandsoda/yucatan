@@ -1388,7 +1388,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3add4773885739d4bbfeff17f9e5a3c7, type: 3}
-  m_Color: {r: 0.26415092, g: 0.25896356, b: 0.19811319, a: 1}
+  m_Color: {r: 0.49056602, g: 0.48376867, b: 0.38180846, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2153,7 +2153,7 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
+  m_PointLightInnerRadius: 0.5
   m_PointLightOuterRadius: 1
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
@@ -2177,7 +2177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6760c3e61ec56b84187f81a0d4e33a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxFlicker: 0.7
+  maxFlicker: 1
 --- !u!1 &1506559971
 GameObject:
   m_ObjectHideFlags: 0

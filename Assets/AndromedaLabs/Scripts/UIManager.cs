@@ -10,14 +10,22 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private string nextButtonTargetSceneName;
 
+    [SerializeField]
+    private GameObject restartGamePanel;
+
     private void Start()
     {
         GameEvents.Instance.introTextIsOver.AddListener(DisplayNextStageButtonAfterTextDisplayed);
         GameEvents.Instance.hideNextButton.AddListener(HideNextButton);
         GameEvents.Instance.triggerStageCleared.AddListener(HandleStageCleared);
         GameEvents.Instance.loadNextScene.AddListener(LoadNextScene);
+        GameEvents.Instance.triggerRestartGame.AddListener(HandleRestartGame);
     }
 
+    private void HandleRestartGame()
+    {
+        restartGamePanel.SetActive(true);
+    }
 
     private void HideNextButton()
     {

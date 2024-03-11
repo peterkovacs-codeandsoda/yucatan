@@ -23,4 +23,6 @@ public class GameEvents : Singleton<GameEvents>
 
     public UnityEvent throwStone;
 
+    public UnityEvent triggerRestartGame;
+
 }
