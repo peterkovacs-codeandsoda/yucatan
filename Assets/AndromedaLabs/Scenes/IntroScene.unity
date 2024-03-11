@@ -1355,12 +1355,14 @@ MonoBehaviour:
   typingDelay: 0.1
   targetUIText: {fileID: 1622787951}
   speechEntries:
-  - 'Elder: I tell you a story about the heart of the land. Something lives on deep
-    in the forest. When the Elders arrived, we encounter it since then. We don''t
-    understand it, but we can feel it, we can see it. There are signs. We have to
-    be careful.'
-  - 'Elder: Listen to me! Hard time is coming to the land. that''s his cruelty. It''s
-    angry, like never before. we have to stand together. No one can survive. alone...'
+  - 'Elder: I tell you a story about the heart of the land. Something lives deep
+    in the forest. When our Elders settled down, they encountered it. It has many
+    forms and from time to time it appers and destroy our society, kill our family,
+    poison our food.'
+  - 'Elder: We don''t understand it, but we can feel it, we can see it. There are
+    signs. We have to be careful.'
+  - 'Elder: Listen to me! Hard time is coming. It''s angry, like never before. we
+    have to stand together. No one can survive. alone...'
   - "You: I have to do something. I try to help our people. Let's go.\r"
 --- !u!1 &1549068939
 GameObject:

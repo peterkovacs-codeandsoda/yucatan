@@ -35,6 +35,7 @@ public class UIManager : Singleton<UIManager>
     private void HandleRestartGame()
     {
         restartGamePanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     private void HideNextButton()
