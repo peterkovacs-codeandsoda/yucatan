@@ -25,4 +25,6 @@ public class GameEvents : Singleton<GameEvents>
 
     public UnityEvent triggerRestartGame;
 
+    public UnityEvent<int> triggerMightChanged;
+
 }

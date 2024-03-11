@@ -44,6 +44,7 @@ public class PlayerController : Singleton<PlayerController>
     public void DecreaseMightiness()
     {
         mightiness--;
+        GameEvents.Instance.triggerMightChanged.Invoke(mightiness);
         if (mightiness <= 0)
         {
             GameEvents.Instance.triggerRestartGame.Invoke();

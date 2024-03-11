@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -13,6 +14,9 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private GameObject restartGamePanel;
 
+    [SerializeField]
+    private Slider might;
+
     private void Start()
     {
         GameEvents.Instance.introTextIsOver.AddListener(DisplayNextStageButtonAfterTextDisplayed);
@@ -20,6 +24,12 @@ public class UIManager : Singleton<UIManager>
         GameEvents.Instance.triggerStageCleared.AddListener(HandleStageCleared);
         GameEvents.Instance.loadNextScene.AddListener(LoadNextScene);
         GameEvents.Instance.triggerRestartGame.AddListener(HandleRestartGame);
+        GameEvents.Instance.triggerMightChanged.AddListener(HandleMightChange);
+    }
+
+    private void HandleMightChange(int mightValue)
+    {
+        might.value = mightValue;
     }
 
     private void HandleRestartGame()
