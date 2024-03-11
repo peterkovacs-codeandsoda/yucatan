@@ -124,6 +124,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6246417346715097746, guid: 75dcf94747185304381ba674c118530d, type: 3}
   m_PrefabInstance: {fileID: 218477708}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &80157969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 80157970}
+  m_Layer: 0
+  m_Name: ProjectileParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &80157970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80157969}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 417735553}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &84895371
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3263227647867375984, guid: 75dcf94747185304381ba674c118530d, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3263227647867375984, guid: 75dcf94747185304381ba674c118530d, type: 3}
       propertyPath: m_SortingLayerID
@@ -390,6 +421,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9025618835262097982, guid: 75dcf94747185304381ba674c118530d, type: 3}
+      propertyPath: stonePrefab
+      value: 
+      objectReference: {fileID: 7035364297271031727, guid: 9c2608f17f065044b8582dc03150de8e, type: 3}
+    - target: {fileID: 9025618835262097982, guid: 75dcf94747185304381ba674c118530d, type: 3}
+      propertyPath: projectileParent
+      value: 
+      objectReference: {fileID: 80157970}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -505,6 +544,7 @@ Transform:
   m_Children:
   - {fileID: 884473329}
   - {fileID: 860759764}
+  - {fileID: 80157970}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &483070984

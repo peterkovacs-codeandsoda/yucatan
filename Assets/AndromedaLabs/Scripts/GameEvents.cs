@@ -21,4 +21,6 @@ public class GameEvents : Singleton<GameEvents>
 
     public UnityEvent loadNextScene;
 
+    public UnityEvent throwStone;
+
 }
