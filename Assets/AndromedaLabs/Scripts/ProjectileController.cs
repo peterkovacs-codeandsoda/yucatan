@@ -7,6 +7,9 @@ public class ProjectileController : MonoBehaviour
     public float movementSpeed = 5f;
     public bool flipped;
 
+    [SerializeField]
+    private GameObject acerolaPrefab;
+
     void Start()
     {
         Destroy(gameObject, 1f);
@@ -20,7 +23,20 @@ public class ProjectileController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(collision.gameObject);
+        print(collision.gameObject.layer);
+        if (collision.gameObject.layer == 11)
+        {
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.layer == 12)
+        {
+            Instantiate(acerolaPrefab, collision.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(collision.gameObject);
+        }
     }
 
 }
