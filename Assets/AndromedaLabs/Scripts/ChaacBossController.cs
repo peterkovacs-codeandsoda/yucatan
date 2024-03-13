@@ -21,6 +21,8 @@ public class ChaacBossController : MonoBehaviour
 
     private float thunderRange = 3f;
 
+    private bool invulnerable = false;
+
 
     void Start()
     {
@@ -42,12 +44,20 @@ public class ChaacBossController : MonoBehaviour
 
     private void DoThunders()
     {
+        invulnerable = true;
+        GetComponent<Collider2D>().enabled = false;
         StartCoroutine(AsyncThunders());
+    }
+
+    private void Materialized()
+    {
+        invulnerable = false;
+        GetComponent<Collider2D>().enabled = true;
     }
 
     private IEnumerator AsyncThunders()
     {
-        int thunderCount = Random.Range(0, 20);
+        int thunderCount = Random.Range(0, 10);
         for (int i = 0; i < thunderCount; i++)
         {
             /*Vector2 position = new(Random.Range(0f, Camera.main.pixelWidth), Random.Range(0f, Camera.main.pixelHeight));
@@ -74,12 +84,15 @@ public class ChaacBossController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        hp--;
-        GameEvents.Instance.bossHpChanged.Invoke(hp);
-        if (hp <= 0)
+        if (!invulnerable)
         {
-            GameEvents.Instance.triggerStageCleared.Invoke();
-            Destroy(gameObject);
+            hp--;
+            GameEvents.Instance.bossHpChanged.Invoke(hp);
+            if (hp <= 0)
+            {
+                GameEvents.Instance.triggerStageCleared.Invoke();
+                Destroy(gameObject);
+            }
         }
     }
 }
