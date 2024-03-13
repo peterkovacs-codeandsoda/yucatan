@@ -31,4 +31,7 @@ public class GameEvents : Singleton<GameEvents>
 
     public UnityEvent<int> bossHpChanged;
 
+    public UnityEvent openAcerolaPanel;
+
+    public UnityEvent activateAcerola;
 }

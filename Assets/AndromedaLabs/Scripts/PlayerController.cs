@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
 {
+    private const string acerolaLocalStorageKey = "acerola";
     [SerializeField]
     private float movementSpeed = 3f;
     [SerializeField]
@@ -13,11 +15,43 @@ public class PlayerController : Singleton<PlayerController>
     private bool throwInProgress = false;
 
     private int mightiness = 10;
+    private bool acerolaInTheInventory;
+    private bool acerolaActivated = false;
+    private bool invincible = false;
 
     private void Start()
     {
         GameEvents.Instance.triggerStageCleared.AddListener(HandleStageCleared);
         GameEvents.Instance.throwStone.AddListener(HandleThrowStone);
+        GameEvents.Instance.openAcerolaPanel.AddListener(HandleAcerolaGathered);
+        GameEvents.Instance.activateAcerola.AddListener(HandleAcerolaActivation);
+        acerolaInTheInventory = PlayerPrefs.GetInt(acerolaLocalStorageKey, 0) == 1;
+    }
+
+    private void HandleAcerolaActivation()
+    {
+        PlayerPrefs.DeleteKey(acerolaLocalStorageKey);
+        PlayerPrefs.Save();
+        StartCoroutine(DoInvincibility());
+        Transform shield = transform.GetChild(0);
+        if (shield != null )
+        {
+            shield.gameObject.SetActive(true);
+        }
+    }
+
+    private IEnumerator DoInvincibility()
+    {
+        invincible = true;
+        yield return new WaitForSeconds(20f);
+        invincible = false;
+    }
+
+    private void HandleAcerolaGathered()
+    {
+        acerolaInTheInventory = true;
+        PlayerPrefs.SetInt(acerolaLocalStorageKey, 1);
+        PlayerPrefs.Save();
     }
 
     private void HandleThrowStone()
@@ -38,16 +72,18 @@ public class PlayerController : Singleton<PlayerController>
     private void HandleThrowDone()
     {
         throwInProgress = false;
-        print("called throwdone");
     }
 
     public void DecreaseMightiness()
     {
-        mightiness--;
-        GameEvents.Instance.triggerMightChanged.Invoke(mightiness);
-        if (mightiness <= 0)
+        if (!invincible)
         {
-            GameEvents.Instance.triggerRestartGame.Invoke();
+            mightiness--;
+            GameEvents.Instance.triggerMightChanged.Invoke(mightiness);
+            if (mightiness <= 0)
+            {
+                GameEvents.Instance.triggerRestartGame.Invoke();
+            }
         }
     }
 
@@ -97,6 +133,12 @@ public class PlayerController : Singleton<PlayerController>
             {
                 transform.position = currentPositionInBoundary;
             }
+        }
+
+        if (acerolaInTheInventory && !acerolaActivated && Input.GetKeyDown(KeyCode.Space))
+        {
+            acerolaActivated = true;
+            GameEvents.Instance.activateAcerola.Invoke();
         }
 
     }

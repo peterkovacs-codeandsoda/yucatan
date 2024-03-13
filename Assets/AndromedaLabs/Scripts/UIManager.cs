@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -20,6 +21,12 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private Slider bossHp;
 
+    [SerializeField]
+    private GameObject acerolaPanel;
+
+    [SerializeField]
+    private GameObject acerolaIcon;
+
     private void Start()
     {
         GameEvents.Instance.introTextIsOver.AddListener(DisplayNextStageButtonAfterTextDisplayed);
@@ -29,6 +36,31 @@ public class UIManager : Singleton<UIManager>
         GameEvents.Instance.triggerRestartGame.AddListener(HandleRestartGame);
         GameEvents.Instance.triggerMightChanged.AddListener(HandleMightChange);
         GameEvents.Instance.bossHpChanged.AddListener(HandleBossHpChange);
+        GameEvents.Instance.openAcerolaPanel.AddListener(HandleAcerolaPanelOpen);
+        GameEvents.Instance.activateAcerola.AddListener(HandleAcerolaActivation);
+
+        if (PlayerPrefs.GetInt("acerola") == 1 && acerolaIcon != null)
+        {
+            acerolaIcon.SetActive(true);
+        }
+    }
+
+    private void HandleAcerolaActivation()
+    {
+        acerolaIcon.SetActive(false);
+    }
+
+    private void HandleAcerolaPanelOpen()
+    {
+        acerolaPanel.SetActive(true);
+        acerolaIcon.SetActive(true);
+        StartCoroutine(CloseAcerolaPanel());
+    }
+
+    private IEnumerator CloseAcerolaPanel()
+    {
+        yield return new WaitForSeconds(2f);
+        acerolaPanel.SetActive(false);
     }
 
     private void HandleBossHpChange(int hp)
@@ -82,6 +114,7 @@ public class UIManager : Singleton<UIManager>
     public void RestartGame()
     {
         SceneManager.LoadScene("StartGameScene");
+        Time.timeScale = 1;
     }
 
     public void ExitGame()

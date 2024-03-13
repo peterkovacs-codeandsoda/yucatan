@@ -26,6 +26,10 @@ public class DropController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            if (acerola)
+            {
+                GameEvents.Instance.openAcerolaPanel.Invoke();
+            }
             GameEvents.Instance.collectDrop.Invoke(goodCollectible);
             Destroy(gameObject);
         }
