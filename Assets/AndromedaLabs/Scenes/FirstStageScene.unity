@@ -535,6 +535,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7225040072914401069, guid: 75dcf94747185304381ba674c118530d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9025618835262097982, guid: 75dcf94747185304381ba674c118530d, type: 3}
       propertyPath: projectileParent
       value: 
