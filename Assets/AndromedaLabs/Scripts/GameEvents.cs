@@ -29,7 +29,7 @@ public class GameEvents : Singleton<GameEvents>
 
     public UnityEvent chaacGodAttack;
 
-    public UnityEvent<int> bossHpChanged;
+    public UnityEvent<float> bossHpChanged;
 
     public UnityEvent openAcerolaPanel;
 

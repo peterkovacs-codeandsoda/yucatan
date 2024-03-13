@@ -63,7 +63,7 @@ public class UIManager : Singleton<UIManager>
         acerolaPanel.SetActive(false);
     }
 
-    private void HandleBossHpChange(int hp)
+    private void HandleBossHpChange(float hp)
     {
         bossHp.value = hp;
     }

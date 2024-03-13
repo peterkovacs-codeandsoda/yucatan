@@ -16,21 +16,24 @@ public class ChaacBossController : MonoBehaviour
     private int selectedIndex = -1;
 
     [SerializeField]
-    private int hp = 20;
+    private float hp = 20;
+    private float maxHp;
 
     private readonly float thunderRange = 2.5f;
 
     private bool invulnerable = false;
-
+    private readonly float regenerationIncrement = 0.2f;
 
     void Start()
     {
+        maxHp = hp;
         StartCoroutine(Attack());
     }
 
     private void Teleport()
     {
-        Vector2 targetPosition = CalculateNextTarget();
+        //Vector2 targetPosition = CalculateNextTarget();
+        Vector2 targetPosition = CalculateOnScreenNextTarget();
         transform.position = targetPosition;
         GetComponent<Animator>().SetTrigger("spawn");
     }
@@ -100,6 +103,12 @@ public class ChaacBossController : MonoBehaviour
         return traversalRoot.GetChild(index).transform.position;
     }
 
+    private Vector2 CalculateOnScreenNextTarget()
+    {
+        Vector2 position = new(Random.Range(0f, Camera.main.pixelWidth), Random.Range(0f, Camera.main.pixelHeight));
+        return Camera.main.ScreenToWorldPoint(position);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!invulnerable)
@@ -113,4 +122,16 @@ public class ChaacBossController : MonoBehaviour
             }
         }
     }
+
+    private void Update()
+    {
+        if (hp > 0 && hp < maxHp)
+        {
+            hp += Time.deltaTime * regenerationIncrement;
+            GameEvents.Instance.bossHpChanged.Invoke(hp);
+        }
+
+        hp = Mathf.Clamp(hp, 0, maxHp);
+    }
+
 }
