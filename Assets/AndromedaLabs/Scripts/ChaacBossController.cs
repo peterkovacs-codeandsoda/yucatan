@@ -49,11 +49,11 @@ public class ChaacBossController : MonoBehaviour
         print(distance);
         if (distance < 6f)
         {
-            StartCoroutine(HorizontalAttack(distance));
-        } else
-        {
-            StartCoroutine(AsyncThunders());
+            StartCoroutine(HorizontalAttack());
         }
+
+        StartCoroutine(AsyncThunders());
+
     }
 
     private void Materialized()
@@ -74,7 +74,7 @@ public class ChaacBossController : MonoBehaviour
         }
     }
 
-    private IEnumerator HorizontalAttack(float distance)
+    private IEnumerator HorizontalAttack()
     {
         Vector3 triggerPosition = transform.position;
         Vector3 direction = PlayerController.Instance.transform.position - triggerPosition;

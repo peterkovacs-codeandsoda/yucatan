@@ -25,8 +25,7 @@ public class ProjectileController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.gameObject.layer);
-        if (collision.gameObject.layer == 11)
+        if (collision.gameObject.layer == 11 || collision.gameObject.layer == 14)
         {
             Destroy(gameObject);
         }
