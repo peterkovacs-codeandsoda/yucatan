@@ -25,6 +25,8 @@ public class ProjectileController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        GameEvents.Instance.triggerHitAnimation.Invoke(collision.transform.position);
+
         if (collision.gameObject.layer == 11 || collision.gameObject.layer == 14)
         {
             Destroy(gameObject);

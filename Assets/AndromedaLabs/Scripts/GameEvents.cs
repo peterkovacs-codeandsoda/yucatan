@@ -34,4 +34,6 @@ public class GameEvents : Singleton<GameEvents>
     public UnityEvent openAcerolaPanel;
 
     public UnityEvent activateAcerola;
+
+    public UnityEvent<Vector2> triggerHitAnimation;
 }
