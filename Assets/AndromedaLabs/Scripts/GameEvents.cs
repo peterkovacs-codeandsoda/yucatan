@@ -27,4 +27,8 @@ public class GameEvents : Singleton<GameEvents>
 
     public UnityEvent<int> triggerMightChanged;
 
+    public UnityEvent chaacGodAttack;
+
+    public UnityEvent<int> bossHpChanged;
+
 }

@@ -17,6 +17,9 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private Slider might;
 
+    [SerializeField]
+    private Slider bossHp;
+
     private void Start()
     {
         GameEvents.Instance.introTextIsOver.AddListener(DisplayNextStageButtonAfterTextDisplayed);
@@ -25,6 +28,12 @@ public class UIManager : Singleton<UIManager>
         GameEvents.Instance.loadNextScene.AddListener(LoadNextScene);
         GameEvents.Instance.triggerRestartGame.AddListener(HandleRestartGame);
         GameEvents.Instance.triggerMightChanged.AddListener(HandleMightChange);
+        GameEvents.Instance.bossHpChanged.AddListener(HandleBossHpChange);
+    }
+
+    private void HandleBossHpChange(int hp)
+    {
+        bossHp.value = hp;
     }
 
     private void HandleMightChange(int mightValue)
@@ -68,6 +77,16 @@ public class UIManager : Singleton<UIManager>
     public void LoadNextScene()
     {
         SceneManager.LoadScene(nextButtonTargetSceneName);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("StartGameScene");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
     #endregion
 

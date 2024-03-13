@@ -7,6 +7,8 @@ public class ProjectileController : MonoBehaviour
     public float movementSpeed = 5f;
     public bool flipped;
 
+    private static bool acerolaNoMore = false;
+
     [SerializeField]
     private GameObject acerolaPrefab;
 
@@ -28,12 +30,13 @@ public class ProjectileController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else if (collision.gameObject.layer == 12)
+        else if (!acerolaNoMore && collision.gameObject.layer == 12)
         {
+            acerolaNoMore = true;
             Instantiate(acerolaPrefab, collision.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        else
+        else if (collision.gameObject.layer == 7)
         {
             Destroy(collision.gameObject);
         }
