@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ChaacBossController : MonoBehaviour
 {
@@ -12,14 +13,12 @@ public class ChaacBossController : MonoBehaviour
     [SerializeField]
     private Transform traversalRoot;
 
-    [SerializeField]
-    private float attackDelay = 1f;
-
     private int selectedIndex = -1;
 
-    private int hp = 1;
+    [SerializeField]
+    private int hp = 20;
 
-    private float thunderRange = 3f;
+    private readonly float thunderRange = 2.5f;
 
     private bool invulnerable = false;
 
@@ -46,7 +45,15 @@ public class ChaacBossController : MonoBehaviour
     {
         invulnerable = true;
         GetComponent<Collider2D>().enabled = false;
-        StartCoroutine(AsyncThunders());
+        float distance = Vector3.Distance(transform.position, PlayerController.Instance.transform.position);
+        print(distance);
+        if (distance < 6f)
+        {
+            StartCoroutine(HorizontalAttack(distance));
+        } else
+        {
+            StartCoroutine(AsyncThunders());
+        }
     }
 
     private void Materialized()
@@ -60,13 +67,24 @@ public class ChaacBossController : MonoBehaviour
         int thunderCount = Random.Range(0, 10);
         for (int i = 0; i < thunderCount; i++)
         {
-            /*Vector2 position = new(Random.Range(0f, Camera.main.pixelWidth), Random.Range(0f, Camera.main.pixelHeight));
-            position = Camera.main.ScreenToWorldPoint(position);
-            */
             Vector2 position = PlayerController.Instance.transform.position + new Vector3(Random.Range(-thunderRange, thunderRange), Random.Range(-thunderRange, thunderRange));
             Instantiate(thunderPrefab, position, Quaternion.identity, thunderParent);
-            float spawnDelay = Random.Range(0f, 1f);
+            float spawnDelay = Random.Range(0f, thunderCount / 10f);
             yield return new WaitForSeconds(spawnDelay);
+        }
+    }
+
+    private IEnumerator HorizontalAttack(float distance)
+    {
+        Vector3 triggerPosition = transform.position;
+        Vector3 direction = PlayerController.Instance.transform.position - triggerPosition;
+        for (int i = 0;i < 5;i++)
+        {
+            direction = direction.normalized;
+            direction = direction * 2 * (i + 1);
+            GameObject thunder = Instantiate(thunderPrefab, direction + triggerPosition, Quaternion.identity, thunderParent);
+            //thunder.transform.localScale = new(2 / (i + 1f), 2 / (i + 1f));
+            yield return new WaitForSeconds(1/ (10f *(i+1f)));
         }
     }
 
