@@ -33,10 +33,15 @@ public class PlayerController : Singleton<PlayerController>
         PlayerPrefs.DeleteKey(acerolaLocalStorageKey);
         PlayerPrefs.Save();
         StartCoroutine(DoInvincibility());
+        SwitchShield(true);
+    }
+
+    private void SwitchShield(bool state)
+    {
         Transform shield = transform.GetChild(0);
-        if (shield != null )
+        if (shield != null)
         {
-            shield.gameObject.SetActive(true);
+            shield.gameObject.SetActive(state);
         }
     }
 
@@ -45,6 +50,7 @@ public class PlayerController : Singleton<PlayerController>
         invincible = true;
         yield return new WaitForSeconds(20f);
         invincible = false;
+        SwitchShield(false);
     }
 
     private void HandleAcerolaGathered()

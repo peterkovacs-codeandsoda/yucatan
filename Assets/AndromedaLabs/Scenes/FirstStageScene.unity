@@ -1070,7 +1070,7 @@ MonoBehaviour:
   typingDelay: 0.1
   targetUIText: {fileID: 407477220}
   speechEntries:
-  - You defeated all the minions of Kukulcan. You aquired the Staff of the Ruthless.
+  - You defeated all the minions of Kukulcan. You gathered a lot of rage shards.
   - You continue your journey to the old pyramid.
 --- !u!1 &417735552
 GameObject:

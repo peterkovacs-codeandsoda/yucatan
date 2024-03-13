@@ -1364,6 +1364,8 @@ MonoBehaviour:
   - 'Elder: Listen to me! Hard time is coming. It''s angry, like never before. we
     have to stand together. No one can survive. alone...'
   - "You: I have to do something. I try to help our people. Let's go.\r"
+  - "TUTORIAL: You can use W,A,S,D to control the player movement.\r"
+  - "TUTORIAL: You can use mouse left click to interact and attack.\r"
 --- !u!1 &1549068939
 GameObject:
   m_ObjectHideFlags: 0
