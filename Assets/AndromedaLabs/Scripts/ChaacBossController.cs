@@ -19,6 +19,8 @@ public class ChaacBossController : MonoBehaviour
 
     private int hp = 1;
 
+    private float thunderRange = 3f;
+
 
     void Start()
     {
@@ -34,13 +36,8 @@ public class ChaacBossController : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        yield return new WaitForSeconds(0.3f);
-        while (true)
-        {
-            GetComponent<Animator>().SetTrigger("attack");
-            DoThunders();
-            yield return new WaitForSeconds(attackDelay);
-        }
+        yield return new WaitForSeconds(1f);
+        GetComponent<Animator>().SetTrigger("attack");
     }
 
     private void DoThunders()
@@ -53,8 +50,10 @@ public class ChaacBossController : MonoBehaviour
         int thunderCount = Random.Range(0, 20);
         for (int i = 0; i < thunderCount; i++)
         {
-            Vector2 position = new(Random.Range(0f, Camera.main.pixelWidth), Random.Range(0f, Camera.main.pixelHeight));
+            /*Vector2 position = new(Random.Range(0f, Camera.main.pixelWidth), Random.Range(0f, Camera.main.pixelHeight));
             position = Camera.main.ScreenToWorldPoint(position);
+            */
+            Vector2 position = PlayerController.Instance.transform.position + new Vector3(Random.Range(-thunderRange, thunderRange), Random.Range(-thunderRange, thunderRange));
             Instantiate(thunderPrefab, position, Quaternion.identity, thunderParent);
             float spawnDelay = Random.Range(0f, 1f);
             yield return new WaitForSeconds(spawnDelay);

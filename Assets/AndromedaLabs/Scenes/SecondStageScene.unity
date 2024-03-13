@@ -3139,6 +3139,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5458693573966054163, guid: bff4b95013e904b459bcce386085a819, type: 3}
+      propertyPath: attackDelay
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458693573966054163, guid: bff4b95013e904b459bcce386085a819, type: 3}
       propertyPath: thunderParent
       value: 
       objectReference: {fileID: 455146746}
