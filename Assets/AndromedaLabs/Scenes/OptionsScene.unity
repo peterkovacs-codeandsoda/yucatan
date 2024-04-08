@@ -990,7 +990,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 927804331}
         m_TargetAssemblyTypeName: OptionsConfiguration, Assembly-CSharp
-        m_MethodName: UseFastSubtitleSpeed
+        m_MethodName: UseHardDifficulty
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1865,7 +1865,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 927804331}
         m_TargetAssemblyTypeName: OptionsConfiguration, Assembly-CSharp
-        m_MethodName: UseSlowSubtitleSpeed
+        m_MethodName: UseEasyDifficulty
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
