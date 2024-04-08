@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/AndromedaLabs/Scenes/StartGameScene.unity
     guid: ca1a35ff47abf9d4cbb0332f32721047
   - enabled: 1
+    path: Assets/AndromedaLabs/Scenes/OptionsScene.unity
+    guid: 2af2c25ce6a578949a3fd65f12a15e55
+  - enabled: 1
     path: Assets/AndromedaLabs/Scenes/IntroScene.unity
     guid: 2f04028794fe75f42b95655d8416c87c
   - enabled: 1

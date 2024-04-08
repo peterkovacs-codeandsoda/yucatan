@@ -6,6 +6,12 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField]
     private float movementSpeed = 2f;
+    private int damage;
+
+    private void Start()
+    {
+        damage = OptionsConfiguration.Instance.easyDifficulty ? 1 : 2;
+    }
 
     void Update()
     {
@@ -26,7 +32,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerController>().DecreaseMightiness();
+            collision.gameObject.GetComponent<PlayerController>().DecreaseMightiness(damage);
         }
     }
 

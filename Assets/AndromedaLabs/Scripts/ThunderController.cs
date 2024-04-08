@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class ThunderController : MonoBehaviour
 {
+    private int damage;
 
+    private void Start()
+    {
+        damage = OptionsConfiguration.Instance.easyDifficulty ? 1 : 5;
+    }
     public void EnableCollider()
     {
         GetComponent<Collider2D>().enabled = true;
@@ -24,7 +29,7 @@ public class ThunderController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerController>().DecreaseMightiness();
+            collision.gameObject.GetComponent<PlayerController>().DecreaseMightiness(damage);
         }
     }
 }

@@ -111,9 +111,19 @@ public class UIManager : Singleton<UIManager>
         SceneManager.LoadScene(nextButtonTargetSceneName);
     }
 
-    public void RestartGame()
+    public void LoadOptionsScene()
+    {
+        SceneManager.LoadScene("OptionsScene");
+    }
+
+    public void LoadStartGameScene()
     {
         SceneManager.LoadScene("StartGameScene");
+    }
+
+    public void RestartGame()
+    {
+        LoadStartGameScene();
         Time.timeScale = 1;
     }
 

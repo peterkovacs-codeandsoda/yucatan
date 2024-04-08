@@ -25,7 +25,7 @@ public class TypeWritingController : MonoBehaviour
     private bool nextStageDisplayed = false;
     void Start()
     {
-        //typingCoroutine = StartCoroutine(Typing());
+        typingDelay = OptionsConfiguration.Instance.subtitleSpeed;
         HandleNextSpeechEntry();
         GameEvents.Instance.triggerNextSpeechEntry.AddListener(HandleNextSpeechEntry);
     }

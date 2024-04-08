@@ -80,11 +80,11 @@ public class PlayerController : Singleton<PlayerController>
         throwInProgress = false;
     }
 
-    public void DecreaseMightiness()
+    public void DecreaseMightiness(int decrement)
     {
         if (!invincible)
         {
-            mightiness--;
+            mightiness -= decrement;
             GameEvents.Instance.triggerMightChanged.Invoke(mightiness);
             if (mightiness <= 0)
             {
