@@ -5,12 +5,13 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField]
-    private float movementSpeed = 2f;
+    private float movementSpeed;
     private int damage;
 
     private void Start()
     {
         damage = OptionsConfiguration.Instance.easyDifficulty ? 1 : 2;
+        movementSpeed = OptionsConfiguration.Instance.easyDifficulty ? 1f : 2f;
     }
 
     void Update()

@@ -16,17 +16,22 @@ public class ChaacBossController : MonoBehaviour
     private int selectedIndex = -1;
 
     [SerializeField]
-    private float hp = 20;
+    private float hp;
     private float maxHp;
 
     private readonly float thunderRange = 2.5f;
 
     private bool invulnerable = false;
-    private readonly float regenerationIncrement = 0.2f;
+    private float regenerationIncrement;
+    private int maximumThunderCount;
 
     void Start()
     {
+        bool easyMode = OptionsConfiguration.Instance.easyDifficulty;
+        hp = easyMode ? 5 : 20;
         maxHp = hp;
+        regenerationIncrement = easyMode ? 0f : 0.2f;
+        maximumThunderCount = easyMode ? 4 : 10;
         StartCoroutine(Attack());
     }
 
@@ -67,7 +72,7 @@ public class ChaacBossController : MonoBehaviour
 
     private IEnumerator AsyncThunders()
     {
-        int thunderCount = Random.Range(0, 10);
+        int thunderCount = Random.Range(0, maximumThunderCount);
         for (int i = 0; i < thunderCount; i++)
         {
             Vector2 position = PlayerController.Instance.transform.position + new Vector3(Random.Range(-thunderRange, thunderRange), Random.Range(-thunderRange, thunderRange));
